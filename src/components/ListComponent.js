@@ -1,18 +1,19 @@
 import React from 'react'
-import { Container, Row } from 'reactstrap'
+import { Container, List, Row } from 'reactstrap'
 
 export default function ListComponent(props) {
+    console.log('props', props)
     return (
         <Container>
             <Row>
-                <ul>
-                    {props.apis &&
-                        props.apis.map((item) => {
-                            <li key={item}>
-                                <span>{item}</span>
+                <List type="unstyled" className="todos-container">
+                    {props.data &&
+                        props.data.map((item) => (
+                            <li key={item.id} className="singleList">
+                                <span>{item.name}</span>
                             </li>
-                        })}
-                </ul>
+                        ))}
+                </List>
             </Row>
         </Container>
     )
